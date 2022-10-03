@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion</title>
+    <style>
+     .container{
+        background-color: green;
+        height: 100vh;
+     }
+     h1{
+        height: 35px;
+        border: 2px solid white;
+        width: 30%;
+        margin: 20px;
+        background-color: rgb(88, 228, 88);
+     }
+     input{
+        height: 35px;
+        font-size: 20px;
+     }
+
+     span{
+        font-size: 25px;
+     }
+    </style>
+    <script>
+       function convert(){
+        let kms=document.getElementById('data').value;
+        const factor=0.621371;
+        let miles=kms*factor;
+        document.getElementById('res').innerHTML=`${miles} miles`;
+       }
+
+       function check(){
+        //Sign
+        let n=document.getElementById('datas').value;
+        let values=Math.sign(n);
+        document.getElementById('resu').innerHTML=`${values}`;
+
+        //Odd || Even
+        if(n%2==0){
+            document.getElementById('resul').innerHTML=`Even`;
+        }
+        else{
+            document.getElementById('resul').innerHTML=`Odd`;
+        }
+
+        //Prime || Composite
+        if(n==1){
+            document.getElementById('result').innerHTML=`Neither Prime nor Composite`;
+         }
+        else if(n<1){
+            document.getElementById('result').innerHTML=`Not Prime Number`;
+         }
+         else if(n==2){
+            document.getElementById('result').innerHTML=`Prime Number`;
+         }
+         else{
+            for(let i=2;i<n;i++){
+                if(n%i==0){
+                    document.getElementById('result').innerHTML=`Not Prime Number`;
+                    break;
+                }
+                else{
+                    document.getElementById('result').innerHTML=`Prime Number`;
+                }
+            }
+         }
+       }
+       
+    </script>
+</head>
+<body>
+    <div class="container">
+    <label for="data">Kms</label>
+    <input type="number" name="number" id="data" placeholder="Enter The Number in Kms">
+    <button onclick="convert()">Convert</button> <span>To Miles</span>
+    <h1 id="res"></h1>
+    <br/>
+
+    <label for="datas">Number</label>
+    <input type="number" name="number" id="datas" placeholder="Enter The Number">
+    <button onclick="check()">Check</button> <span>Either +ve(+1) || -ve(-1) || Zero(0) && Evan || Odd && Prime || Composite</span>
+     <h1 id="resu"></h1>
+     <h1 id="resul"></h1>
+     <h1 id="result"></h1>
+    </div>
+</body>
+</html>
